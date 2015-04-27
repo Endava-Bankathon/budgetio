@@ -16,7 +16,7 @@ angular.module('budgetio')
         'logo': 'browsersync.png'
       },
       {
-        'title': 'Holiday',
+        'title': 'HOLIDAY',
         'url': 'http://gulpjs.com/',
         'description': 'The streaming build system.',
         'logo': 'gulp.png'

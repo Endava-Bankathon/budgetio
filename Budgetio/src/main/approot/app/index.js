@@ -15,10 +15,16 @@ angular.module('budgetio', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', '
       })
       .state('ginifier', {
         url: '/ginifier',
-        templateUrl: 'app/ginifier/ginifier.html',
-        controller: 'GinifierCtrl'
-        }
-      );
+        onEnter: ['$stateParams', '$state', '$modal', '$resource', function($stateParams, $state, $modal, $resource) {
+          $modal.open({
+            size: 'lg',
+            templateUrl: 'app/ginifier/ginifier.html',
+            controller: 'GinifierCtrl'
+          }).result.finally(function() {
+            $state.go('dashboard');
+          });
+        }]
+      });
     $urlRouterProvider.otherwise('/');
   })
 ;
