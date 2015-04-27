@@ -46,7 +46,7 @@ angular.module('budgetio')
         options: {
           max: 4500,
           fgColor: '#f68e56',
-          thickness: .3,
+          thickness: 0.3,
           skin: 'tron',
           width: 200,
           displayPrevious: true
@@ -57,7 +57,7 @@ angular.module('budgetio')
         options: {
           max: 4500,
           fgColor: '#b56ef5',
-          thickness: .3,
+          thickness: 0.3,
           skin: 'tron',
           width: 200,
           displayPrevious: true
@@ -68,7 +68,7 @@ angular.module('budgetio')
         options: {
           max: 4500,
           fgColor: '#fc3589',
-          thickness: .3,
+          thickness: 0.3,
           skin: 'tron',
           width: 200,
           displayPrevious: true
@@ -79,7 +79,7 @@ angular.module('budgetio')
         options: {
           max: 4500,
           fgColor: '#4a668d',
-          thickness: .3,
+          thickness: 0.3,
           skin: 'tron',
           width: 200,
           displayPrevious: true
@@ -90,7 +90,7 @@ angular.module('budgetio')
         options: {
           max: 4500,
           fgColor: '#f64730',
-          thickness: .3,
+          thickness: 0.3,
           skin: 'tron',
           width: 200,
           displayPrevious: true
@@ -101,7 +101,7 @@ angular.module('budgetio')
         options: {
           max: 4500,
           fgColor: '#18ac81',
-          thickness: .3,
+          thickness: 0.3,
           skin: 'tron',
           width: 200,
           displayPrevious: true
