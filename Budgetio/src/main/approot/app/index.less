@@ -13,6 +13,71 @@
   }
 }
 
+@font-face {
+  font-family: 'Roboto';
+
+  src: url('../fonts/Roboto-Thin.ttf');
+}
+input:focus {outline: none;}
+
+/* webkit solution */
+::-webkit-input-placeholder { text-align:right; }
+/* mozilla solution */
+input:-moz-placeholder { text-align:right; }
+.logo {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 300px;
+  height: 103px;
+  z-index: 1;}
+.logo img {width: 100%;}
+/*welcome carousel */
+.slide1{
+  background-image: url("../assets/images/bg-food.png");
+  background-size: cover;
+}
+
+.slide2{
+  background-image: url("../assets/images/bg-hobby.png");
+  background-size: cover;
+}
+.slide3{
+  background-image: url("../assets/images/bg-holiday.png");
+  background-size: cover;
+}
+.next {background-image: url("../assets/images/arrow-right.png"); height: 128px; width: 128px; position: absolute;right: 0px; bottom:0px; cursor: pointer;}
+
+.item .centerboxy {position:absolute;left:50%;margin-left:-350px;top:50%;margin-top:-100px;width:700px;height:200px;  font-family: Roboto;}
+.item .centerboxy .title b{text-decoration: underline; color: #049caf; text-shadow:1px 1px 36px rgba(255, 255, 255, 1);}
+.item .centerboxy input { width: 80%; border-radius: 10px; font-size: 3.5em; background:none; border:0px; border-bottom:1px solid #eee; text-align: right; padding-right: 20px; color:#fff; }
+.item .centerboxy .input {margin-top:40px;position: relative;}
+.item .centerboxy .currency {position: absolute;left: 0px; font-size: 3.5em; color:#fff;	}
+
+.title {color:#fff;font-size: 4em;}
+
+.owl-controls {
+  position:absolute;left:50%;margin-left:-350px;bottom:0px;margin-top:500px;width:700px;height:200px;
+}
+.owl-theme .owl-controls .owl-page.active span
+{
+  opacity: 1;
+  background: #049caf;
+  border: 1px solid #fff;
+  width: 20px;
+  height: 20px;
+}
+
+.owl-theme .owl-controls .owl-page span
+{
+  border: 1px solid #fff;
+  width: 20px ;
+  height: 20px;
+}
+
+.owl-buttons {display: none;}
+
+
 /* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
    all your less files automatically */
 // injector
