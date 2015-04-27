@@ -3,7 +3,7 @@
 angular.module('budgetio')
   .directive('niceScrollbar', function($parse) {
   return {
-    restrict: 'A',
+    restrict: 'AE',
     transclude: true,
     template:  '<div ng-transclude></div>',
     replace: false,

@@ -1,43 +1,27 @@
 'use strict';
 
 angular.module('budgetio')
-  .controller('DashboardCtrl', function ($scope, $state) {
-    $scope.user = {
-      budget: 2333.00
-    };
-    $scope.transactions = [
-      {
-        type: 'F',
-        currency: '€',
-        amount: '50',
-        location: 'SuperMarket Cora Super long title of the shop',
-        time: '14.04.2015'
-      }, {
-        type: 'F',
-        currency: '€',
-        amount: '50',
-        location: 'SuperMarket Cora Super long title of the shop',
-        time: '14.04.2015'
-      }, {
-        type: 'F',
-        currency: '€',
-        amount: '50',
-        location: 'SuperMarket Cora Super long title of the shop',
-        time: '14.04.2015'
-      }, {
-        type: 'F',
-        currency: '€',
-        amount: '50',
-        location: 'SuperMarket Cora Super long title of the shop',
-        time: '14.04.2015'
-      }, {
-        type: 'F',
-        currency: '€',
-        amount: '50',
-        location: 'SuperMarket Cora Super long title of the shop',
-        time: '14.04.2015'
-      }
-    ];
+  .controller('DashboardCtrl', function ($scope, $state, $resource) {
+
+    var usr = $resource('rest/getAccounts');
+    usr.query(function(accounts) {
+      var balance = 0;
+      accounts.each(function(account) {
+        balance += account.balance.balance;
+      });
+      $scope.user = {
+        budget: balance
+      };
+    });
+
+    var transactions = $resource('rest/getTransactions');
+    transactions.query(function(transactions) {
+      $scope.transactions = transactions.map(function(transaction) {
+        transaction.time = moment(transaction.bookingDate).format('L');
+        transaction.category = transaction.name.startsWith('D') ? 'C' : 'F';
+        return transaction;
+      });
+    });
 
     $scope.categories = [
       {

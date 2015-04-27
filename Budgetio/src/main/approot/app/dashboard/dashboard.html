@@ -6,6 +6,7 @@
       <div class="row">
         <div class="col-md-12">
           <span class="subtitle">Your current budget</span>
+
           <div class="amountBox"><span class="currency">€</span><span class="amount">{{user.budget}}</span>
           </div>
           <div class="category lefty" ng-repeat="category in categories">
@@ -17,33 +18,203 @@
       </div>
 
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-7">
           <h2 class="title1">Your transactions </h2>
-          <div class="transactions" niceScrollbar>
+
+          <div class="transactions" niceScrollbar="true">
             <div class="transaction" ng-repeat="transaction in transactions">
               <div class="lefty category">
-                <div class="type food ">F</div>
+                <div class="type food ">{{transaction.category}}</div>
               </div>
               <div class="info lefty">
                 <span class="currency">{{transaction.currency}}</span><span class="amount">{{transaction.amount}}</span>
-                <span class="location">{{transaction.location}}</span>
+                <span class="location">{{transaction.name}}</span>
                 <span class="time">{{transaction.time}}</span>
+              </div>
+              <span class="share"></span>
+              <div class="split" ng-show="transaction.category=='C'">
+                <div class="type misc ">M</div>
+                <div class="type transportation ">T</div>
+                <div class="type food ">F</div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="col-md-4"> <h2 class="title1">Smart notifications </h2></div>
+        <div class="col-md-5 notebox"><h2 class="title1">Smart notifications </h2>
+
+          <div class="scroll notifications happy" niceScrollbar="true">
+            <div class="note happy">
+              <div class="lefty category">
+                <img src="assets/images/banks/logo_deutschebank.png">
+              </div>
+              <div class="info lefty">
+                <span class="title2">Deutsche Bank</span>
+
+                <p>Invest and double your ROI with Deutsche Bank</p>
+              </div>
+            </div>
+            <div class="note sad worried">
+              <div class="lefty category">
+                <img src="assets/images/banks/logo_deutschebank.png">
+              </div>
+              <div class="info lefty">
+                <span class="title2">Deutsche Bank</span>
+
+                <p>Increase your budget by accesing now Deutsche Bank low rate loans</p>
+              </div>
+            </div>
+            <div class="note sad">
+              <div class="lefty category">
+                <img src="assets/images/banks/commerzbank.png">
+              </div>
+              <div class="info lefty">
+                <span class="title2">Commerzbank</span>
+
+                <p>Access now the best personal loan from Commerzbank</p>
+              </div>
+            </div>
+            <div class="note happy">
+              <div class="lefty category">
+                <img src="assets/images/banks/hypovereinsbank.png">
+              </div>
+              <div class="info lefty">
+                <span class="title2">HypoVereinsbank</span>
+
+                <p>Orient yourself in the fund universe based on our expert selection</p>
+              </div>
+            </div>
+            <div class="note happy">
+              <div class="lefty category">
+                <img src="assets/images/banks/biw_logo.png">
+              </div>
+              <div class="info lefty">
+                <span class="title2">biw Bank für investments und wertpapiere</span>
+
+                <p>Best Investments For A Strong Retirement</p>
+              </div>
+            </div>
+            <div class="note happy">
+              <div class="lefty category">
+                <img src="assets/images/banks/comdirect.png">
+              </div>
+              <div class="info lefty">
+                <span class="title2">.comdirect</span>
+
+                <p>Start now and open an account and add to your budget 50EUR</p>
+              </div>
+            </div>
+            <div class="note worried sad">
+              <div class="lefty category">
+                <img src="assets/images/banks/dkb.png">
+              </div>
+              <div class="info lefty">
+                <span class="title2">Deutsche KreditBank AG</span>
+
+                <p>Improve your budget with the loans from Deutsche KreditBank AG </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
     <div class="col-md-2">
       <div class="box white scan" ng-click="ginify()">
-        <a href="#">
-          Scan/Upload your receipts
-          <img src="assets/images/scan.png" width="200px;" />
-        </a>
+        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+          <div class="flipper">
+            <div class="front">
+              <p>Scan/Upload your receipts</p>
+              <img src="assets/images/scan.png" width="200px;"/>
+            </div>
+            <div class="back">
+              <img src="assets/images/scanupload.png"/>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div class="box grey m50 social">
+        <h2> Social tips </h2>
+
+        <div class="scroll feedwrapper" niceScrollbar="true">
+          <div class="feed">
+            <div class="lefty pers">
+              <img src="assets/images/pers/uwe.jpg">
+            </div>
+            <div class="info lefty">
+              <span class="title2">Uwe Blaschke</span>
+
+              <p class="txt">Bankathon Ticket</p>
+              <span class="price">€ 100 </span>
+              <input type="button" class="primary" value="Buy"/>
+            </div>
+          </div>
+          <div class="feed">
+            <div class="lefty pers">
+              <img src="assets/images/pers/gleb.jpg">
+            </div>
+            <div class="info lefty">
+              <span class="title2">Gleb Godonoga</span>
+
+              <p class="txt">Air Tickets Frankfurt-Munich</p>
+              <span class="price">€ 150 </span>
+              <input type="button" class="primary" value="Buy"/>
+            </div>
+          </div>
+          <div class="feed">
+            <div class="lefty pers">
+              <img src="assets/images/pers/dragos.png">
+            </div>
+            <div class="info lefty">
+              <span class="title2">Dragos Dobromir</span>
+
+              <p class="txt">Bankathon Ticket</p>
+              <span class="price">€ 100 </span>
+              <input type="button" class="primary" value="Buy"/>
+            </div>
+          </div>
+          <div class="feed">
+            <div class="lefty pers">
+              <img src="assets/images/pers/bogdan.png">
+            </div>
+            <div class="info lefty">
+              <span class="title2">Bogdan Nastasa</span>
+
+              <p class="txt">LG LED TV</p>
+              <span class="price">€ 400 </span>
+              <input type="button" class="primary" value="Buy"/>
+
+            </div>
+          </div>
+          <div class="feed">
+            <div class="lefty pers">
+              <img src="assets/images/pers/pers1.png">
+            </div>
+            <div class="info lefty">
+              <span class="title2">Karolin Bach</span>
+
+              <p class="txt">Frankfurt Rent</p>
+              <span class="price">€ 200 </span>
+              <input type="button" class="primary" value="Buy"/>
+
+            </div>
+          </div>
+          <div class="feed">
+            <div class="lefty pers">
+              <img src="assets/images/pers/pers2.png">
+            </div>
+            <div class="info lefty">
+              <span class="title2">Hannah Klein</span>
+              <p class="txt">Dinner@Matsuri </p>
+              <span class="price">€ 50 </span>
+              <input type="button" class="primary" value="Buy"/>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

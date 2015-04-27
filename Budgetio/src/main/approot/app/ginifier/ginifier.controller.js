@@ -32,11 +32,14 @@ angular.module('budgetio')
       console.info('onErrorItem', fileItem, response, status, headers);
     };
 
+    uploader.onSuccessItem = function(fileItem, response) {
+      $scope.scanCandidates = response.candidates.amounts;
+    };
+
     uploader.onCompleteItem = function(fileItem, response) {
       $scope.uploading = false;
       uploader.queue = [];
       console.log(response);
-      $scope.scanCandidates = response.candidates.amounts;
     };
 
     $scope.currentProgress = 0;
