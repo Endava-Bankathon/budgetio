@@ -24,7 +24,7 @@
           <div class="transactions" niceScrollbar="true">
             <div class="transaction" ng-repeat="transaction in transactions">
               <div class="lefty category">
-                <div class="type food ">{{transaction.category}}</div>
+                <div ng-class="['type', transaction.categoryClass]">{{transaction.category}}</div>
               </div>
               <div class="info lefty">
                 <span class="currency">{{transaction.currency}}</span><span class="amount">{{transaction.amount}}</span>
