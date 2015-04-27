@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile=sdk-1.2.jar -DgroupId=me.figo -DartifactId=sdk -Dversion=1.2 -Dpackaging=jar

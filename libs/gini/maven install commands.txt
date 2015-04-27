@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile=ginisdk-1.0.jar -DgroupId=net.gini.android -DartifactId=ginisdk -Dversion=1.0 -Dpackaging=jar

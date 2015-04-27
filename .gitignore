@@ -1,6 +1,23 @@
-# Logs
-logs
-*.log
+*.class
+classes
+dependencies
+deploy
+*.zip
+*.tar.gz
+*.orig
+*.war
+*.jar
+target
+*/*/public_html/WEB-INF/lib
+*.rar
+.classpath
+.project
+generated/
+.settings
+node_modules/
+bower_components/
+.idea
+*.iml
 
 # Runtime data
 pids
@@ -25,6 +42,3 @@ build/Release
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
-
-*.iml
-.idea
