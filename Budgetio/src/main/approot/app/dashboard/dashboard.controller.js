@@ -107,5 +107,9 @@ angular.module('budgetio')
           displayPrevious: true
         }
       }
-    ]
+    ];
+
+    $scope.ginify = function() {
+      console.log('giny');
+    }
   });
