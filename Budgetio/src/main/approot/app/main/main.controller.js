@@ -1,25 +1,35 @@
 'use strict';
 
 angular.module('budgetio')
-  .controller('WelcomeCtrl', function ($scope) {
+  .controller('WelcomeCtrl', function ($scope, $state) {
     $scope.welcomeCategories = [
       {
-        'title': 'How much do you want to spend on your <b>FOOD</b>?',
+        'title': 'FOOD',
         'url': 'https://angularjs.org/',
         'description': 'HTML enhanced for web apps!',
         'logo': 'angular.png'
       },
       {
-        'title': 'How much do you want to spend on your <b>HOBBY</b>?',
+        'title': 'HOBBY',
         'url': 'http://browsersync.io/',
         'description': 'Time-saving synchronised browser testing.',
         'logo': 'browsersync.png'
       },
       {
-        'title': 'How much do you want to spend on your <b>Holiday</b>?',
+        'title': 'Holiday',
         'url': 'http://gulpjs.com/',
         'description': 'The streaming build system.',
         'logo': 'gulp.png'
       }
     ];
+
+    $scope.next = function(item) {
+      var carousel = $('.owl-carousel').data().owlCarousel;
+      if (carousel.currentItem == carousel.itemsAmount - 1) {
+        //Navigate to dashboard
+        $state.go('dashboard');
+      } else {
+        carousel.next();
+      }
+    }
   });

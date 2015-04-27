@@ -1,4 +1,53 @@
-<div id="ginifier">
-Ginifier Hello
+<div class="ginified">
+<div class="modal-header">
+  <div class="close" ng-click="cancel()"><img src="assets/images/close.png"/></div>
+  <h2> GINI SCANNER </h2>
 </div>
+<div class="modal-body">
+  <input type="file"/>
+  <input type="button" class="primary" value="SCAN ME">
 
+  <div class="results">
+    <table class="products">
+      <thead>
+      <th>Category</th>
+      <th>Product</th>
+      <th class="price">Price</th>
+      </thead>
+      <tr>
+        <td><span class="type food">F</span></td>
+        <td>product name here</td>
+        <td class="price">123 $</td>
+      </tr>
+      <tr>
+        <td><span class="type food">F</span></td>
+        <td>product name here</td>
+        <td class="price">123 $</td>
+      </tr>
+      <tr>
+        <td><span class="type food">F</span></td>
+        <td>product name here</td>
+        <td class="price">123 $</td>
+      </tr>
+      <tr>
+        <td colspan="3" class="price total">500</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="modal-footer">
+  <div class="category lefty">
+    <input knob class="knob"knob-options="{width: 200, max: 4500, displayPrevious: true, fgColor:'#18ac81', skin: 'tron', thickness: .3}"
+           knob-data="1000">
+    <span class="categoryTitle">Current cash</span>
+  </div>
+  <img class="lefty" src="assets/images/arrow-right2.png"/>
+
+  <div class="category lefty">
+    <input knob class="knob" knob-options="{width: 200, max: 4500, displayPrevious: true, fgColor:'#18ac81', skin: 'tron', thickness: .3}"
+           knob-data="500">
+    <span class="categoryTitle">Cash</span>
+  </div>
+  <input type="button" class="primary confirm" value="CONFIRM & ADD TO YOUR TRANSACTIONS" ng-click="ok()">
+</div>
+</div>

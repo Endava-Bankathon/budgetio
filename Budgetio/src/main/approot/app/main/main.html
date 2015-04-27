@@ -4,56 +4,16 @@
 <div id="welcome">
   <div class="wrapper">
     <div class="span12">
-      <div id="welcome-carousel" class="owl-carousel">
-
-        <div class="item slide1">
+      <data-owl-carousel class="owl-carousel"
+                         data-options="{navigation: true, slideSpeed: 300, paginationSpeed: 400, singleItem: true, transitionStyle : 'fade'}">
+        <div owl-carousel-item="" class="item slide1" ng-repeat="item in ::welcomeCategories">
           <div class="centerboxy">
-            <span class="title">How much do you want to spend on your <b>FOOD</b>?</span>
-            <div class="input"><span class="currency">€</span><input type="text" placeholder ="000.00" /> <span class="next"></span></div>
+            <span class="title">How much do you want to spend on your <b>{{item.title}}</b>?</span>
+            <div class="input"><span class="currency">€</span><input type="text" placeholder ="000.00" /> <span class="next" ng-click="next(item)"></span></div>
           </div>
         </div>
-        <div class="item slide2">
-          <div class="centerboxy">
-            <span class="title">How much do you want to spend on your <b>HOBBY</b>?</span>
-            <div class="input"><span class="currency">€</span><input type="text" placeholder ="000.00" /> <span class="next"></span></div>
-          </div>
-        </div>
-        <div class="item slide3">
-          <div class="centerboxy">
-            <span class="title">How much do you want to spend on your <b>Holiday</b>?</span>
-            <div class="input"><span class="currency">€</span><input type="text" placeholder ="000.00" /> <span class="next"></span></div>
-          </div>
-        </div>
-
-      </div>
+      </data-owl-carousel>
     </div>
 
   </div>
 </div>
-
-<script>
-  $(document).ready(function() {
-    $("#welcome-carousel").owlCarousel({
-
-      navigation : true,
-      slideSpeed : 300,
-      paginationSpeed : 400,
-      singleItem : true,
-      transitionStyle : "fade"
-
-      // "singleItem:true" is a shortcut for:
-      // items : 1,
-      // itemsDesktop : false,
-      // itemsDesktopSmall : false,
-      // itemsTablet: false,
-      // itemsMobile : false
-
-    });
-    var owl = $("#welcome-carousel").data('owlCarousel');
-    $( ".next" ).on( "click", function() {
-      owl.next();
-    });
-
-    $(".item").height($(window).height());
-  });
-</script>

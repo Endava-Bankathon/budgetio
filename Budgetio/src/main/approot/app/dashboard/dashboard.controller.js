@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('budgetio')
-  .controller('DashboardCtrl', function ($scope) {
+  .controller('DashboardCtrl', function ($scope, $modal) {
     $scope.user = {
       budget: 2333.00
     };
@@ -111,5 +111,15 @@ angular.module('budgetio')
 
     $scope.ginify = function() {
       console.log('giny');
+      var modalInstance = $modal.open({
+        templateUrl: 'app/ginifier/ginifier.html',
+        controller: 'GinifierCtrl',
+        size: 'lg',
+        resolve: {
+          items: function () {
+            return $scope.items;
+          }
+        }
+      });
     }
   });

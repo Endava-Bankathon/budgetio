@@ -12,7 +12,6 @@
     width: 50px;
   }
 }
-
 @font-face {
   font-family: 'Roboto';
 
@@ -22,6 +21,7 @@ input:focus {outline: none;}
 h2 {color:#919191;}
 /* webkit solution */
 
+input.primary{background:#049caf; color:#fff; padding:20px; font-family:20px; border:0px;border-radius:10px;font-size:20px;}
 ::-webkit-input-placeholder { text-align:right; }
 /* mozilla solution */
 input:-moz-placeholder { text-align:right; }
@@ -87,6 +87,7 @@ header {background:#049caf; width: 100%; display: inline-block; height: 100px;}
 .owl-buttons {display: none;}
 
 
+
 /*dashboard */
 .amount, .currency {font-size:4.5em; color:#049caf; margin-right: 10px;}
 .category {width:200px;}
@@ -96,11 +97,23 @@ header {background:#049caf; width: 100%; display: inline-block; height: 100px;}
 .transactions {height: 350px;}
 .transaction {width: 100%; display: inline-block; border-bottom:1px solid #eee; padding:5px 0px;}
 .transaction .amount, .transaction .currency{font-size:32px;}
-.transaction .type {border-radius: 50%; padding:10px 22px; color:#fff;font-size:32px;width: 62px;}
-.transaction .type.food {background: #f68e56}
+.type {border-radius: 50%; padding:10px 20px; color:#fff;font-size:32px;width: 65px;text-align: center;}
+.type.food {background: #f68e56}
 .transaction .location {width:100%; display: inline-block;}
 .transaction .category {width:75px;}
 
+.ginified {background:white; width: 100%; height: 100%; margin:0 auto; position: relative;}
+.ginified input.primary {margin:20px 0px;}
+.ginified table.products {width: 100%; font-size:2em;}
+.ginified table.products tr {border-bottom:1px solid #eee; height: 60px;}
+.confirm{
+  float: right;
+  margin-top: 60px !important;
+}
+.close {position: absolute;z-index: 99; right:10px; top:10px;}
+td.price, th.price{text-align: right; padding-right:10px;}
+td.price.total{font-weight: bold;}
+.show .ginified, .show .ginified .wrapper{display: block;}
 
 /* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
    all your less files automatically */
