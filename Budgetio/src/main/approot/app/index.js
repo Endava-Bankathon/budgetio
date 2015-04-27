@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('budgetio', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngFileUpload', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap'])
+angular.module('budgetio', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
@@ -15,7 +15,7 @@ angular.module('budgetio', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngFileUpload',
       })
       .state('ginifier', {
         url: '/ginifier',
-        onEnter: ['$stateParams', '$state', '$modal', '$resource', function($stateParams, $state, $modal, $resource) {
+        onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
           $modal.open({
             size: 'lg',
             templateUrl: 'app/ginifier/ginifier.html',

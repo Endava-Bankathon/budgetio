@@ -5,21 +5,15 @@ angular.module('budgetio')
     $scope.welcomeCategories = [
       {
         'title': 'FOOD',
-        'url': 'https://angularjs.org/',
-        'description': 'HTML enhanced for web apps!',
-        'logo': 'angular.png'
+        'url': 'https://angularjs.org/'
       },
       {
         'title': 'HOBBY',
-        'url': 'http://browsersync.io/',
-        'description': 'Time-saving synchronised browser testing.',
-        'logo': 'browsersync.png'
+        'url': 'http://browsersync.io/'
       },
       {
         'title': 'HOLIDAY',
-        'url': 'http://gulpjs.com/',
-        'description': 'The streaming build system.',
-        'logo': 'gulp.png'
+        'url': 'http://gulpjs.com/'
       }
     ];
 
@@ -31,5 +25,5 @@ angular.module('budgetio')
       } else {
         carousel.next();
       }
-    }
+    };
   });
