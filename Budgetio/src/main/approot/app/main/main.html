@@ -1,33 +1,57 @@
-<div class="container">
+<div class="logo"> <img src="assets/images/budgetio.png"></div>
+<div id="welcome">
+  <div class="wrapper">
+    <div class="span12">
+      <div id="welcome-carousel" class="owl-carousel">
 
-  <div ng-include="'app/components/navbar/navbar.html'"></div>
-
-  <div class="jumbotron text-center">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">
-      <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-      Always a pleasure scaffolding your apps.
-    </p>
-    <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in awesomeThings | orderBy:'rank'">
-      <div class="thumbnail">
-        <img class="pull-right" ng-src="assets/images/{{awesomeThing.logo}}" alt="{{awesomeThing.title}}">
-        <div class="caption">
-          <h3>{{awesomeThing.title}}</h3>
-          <p>{{awesomeThing.description}}</p>
-          <p><a ng-href="{{awesomeThing.url}}">{{awesomeThing.url}}</a></p>
+        <div class="item slide1">
+          <div class="centerboxy">
+            <span class="title">How much do you want to spend on your <b>FOOD</b>?</span>
+            <div class="input"><span class="currency">€</span><input type="text" placeholder ="000.00" /> <span class="next"></span></div>
+          </div>
         </div>
+        <div class="item slide2">
+          <div class="centerboxy">
+            <span class="title">How much do you want to spend on your <b>HOBBY</b>?</span>
+            <div class="input"><span class="currency">€</span><input type="text" placeholder ="000.00" /> <span class="next"></span></div>
+          </div>
+        </div>
+        <div class="item slide3">
+          <div class="centerboxy">
+            <span class="title">How much do you want to spend on your <b>Holiday</b>?</span>
+            <div class="input"><span class="currency">€</span><input type="text" placeholder ="000.00" /> <span class="next"></span></div>
+          </div>
+        </div>
+
       </div>
     </div>
+
   </div>
-
-  <hr>
-
-  <div class="footer">
-    <p>With ♥ from <a href="https://twitter.com/Swiip">@Swiip</a></p>
-  </div>
-
 </div>
+
+<script>
+  $(document).ready(function() {
+    $("#welcome-carousel").owlCarousel({
+
+      navigation : true,
+      slideSpeed : 300,
+      paginationSpeed : 400,
+      singleItem : true,
+      transitionStyle : "fade"
+
+      // "singleItem:true" is a shortcut for:
+      // items : 1,
+      // itemsDesktop : false,
+      // itemsDesktopSmall : false,
+      // itemsTablet: false,
+      // itemsMobile : false
+
+    });
+    var owl = $("#welcome-carousel").data('owlCarousel');
+    $( ".next" ).on( "click", function() {
+      owl.next();
+    });
+
+    $(".item").height($(window).height());
+  });
+</script>
