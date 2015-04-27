@@ -25,7 +25,7 @@ angular.module('budgetio')
 
     $scope.next = function(item) {
       var carousel = $('.owl-carousel').data().owlCarousel;
-      if (carousel.currentItem == carousel.itemsAmount - 1) {
+      if (carousel.currentItem === carousel.itemsAmount - 1) {
         //Navigate to dashboard
         $state.go('dashboard');
       } else {

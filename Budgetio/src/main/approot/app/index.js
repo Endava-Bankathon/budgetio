@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('budgetio', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap'])
+angular.module('budgetio', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngFileUpload', 'ngSanitize', 'ngResource', 'ui.router', 'ui.bootstrap'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
