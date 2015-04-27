@@ -23,9 +23,8 @@ angular.module('budgetio')
         };
 
         knobInit.draw = function () {
-
           // "tron" case
-          if(this.$.data('skin') == 'tron') {
+          if ($scope.knobOptions().skin == 'tron') {
 
             this.cursorExt = 0.3;
 

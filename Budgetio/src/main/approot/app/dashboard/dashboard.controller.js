@@ -79,7 +79,7 @@ angular.module('budgetio')
         options: {
           max: 4500,
           fgColor: '#4a668d',
-          thickness: 0.3,
+          thickness: .3,
           skin: 'tron',
           width: 200,
           displayPrevious: true
