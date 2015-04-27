@@ -28,6 +28,6 @@
 		<jdk.version>1.7</jdk.version>
 	</properties>
 	<modules>
-		<module>Budgetio</module>
+		<module>budgetio</module>
 	</modules>
 </project>
