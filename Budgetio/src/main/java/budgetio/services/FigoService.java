@@ -26,39 +26,95 @@ import me.figo.models.User;
  */
 public interface FigoService {
 
-    @GET
-    @Path("/getUser")
-    @Produces(MediaType.APPLICATION_JSON)
-    public User getUser();    
+  @GET
+  @Path("/getUser")
+  @Produces(MediaType.APPLICATION_JSON)
+  public User getUser();
 
-    @GET
-    @Path("/getAccounts")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Account> getAccounts();    
+  @GET
+  @Path("/getAccount/{accountId}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public Account getAccount(@PathParam("accountId") String accountId);
 
-    @GET
-    @Path("/getTransactions")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Transaction> getTransactions();
-	
-    @GET
-    @Path("/getNotifications")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Notification> getNotifications();    
+  @GET
+  @Path("/getAccounts")
+  @Produces(MediaType.APPLICATION_JSON)
+  public List<Account> getAccounts();
 
-    @GET
-    @Path("/getPayments")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Payment> getPayments();
+  @GET
+  @Path("/getAccountBalance/{accountId}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public AccountBalance getAccountBalance(@PathParam("accountId") String accountId);
 
-    @GET
-    @Path("/getPaymentProposals")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<PaymentProposal> getPaymentProposals();    
+  @GET
+  @Path("/getTransaction/{accountId}/{transactionId}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public Transaction getTransaction(
+    @PathParam("accountId") String accountId, @PathParam("transactionId") String transactionId);
 
-    @GET
-    @Path("/getSecurities")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Security> getSecurities();
+  @GET
+  @Path("/getTransactions/{accountId}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public List<Transaction> getTransactions(@PathParam("accountId") String accountId);
+
+  @GET
+  @Path("/getTransactions")
+  @Produces(MediaType.APPLICATION_JSON)
+  public List<Transaction> getTransactions();
+
+  @GET
+  @Path("/getBank/{bankId}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public Bank getBank(@PathParam("bankId") String bankId);
+
+  @GET
+  @Path("/getNotification/{notificationId}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public Notification getNotification(@PathParam("notificationId") String notificationId);
+
+  @GET
+  @Path("/getNotifications")
+  @Produces(MediaType.APPLICATION_JSON)
+  public List<Notification> getNotifications();
+
+  @GET
+  @Path("/getPayment/{accountId}/{paymentId}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public Payment getPayment(@PathParam("accountId") String accountId, @PathParam("paymentId") String paymentId);
+
+  @GET
+  @Path("/getPayments/{accountId}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public List<Payment> getPayments(@PathParam("accountId") String accountId);
+
+  @GET
+  @Path("/getPayments")
+  @Produces(MediaType.APPLICATION_JSON)
+  public List<Payment> getPayments();
+
+  @GET
+  @Path("/getPaymentProposals")
+  @Produces(MediaType.APPLICATION_JSON)
+  public List<PaymentProposal> getPaymentProposals();
+
+  @GET
+  @Path("/getSupportedServices/{countryCode}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public List<Service> getSupportedServices(@PathParam("countryCode") String countryCode);
+
+  @GET
+  @Path("/getSecurity/{accountId}/{securityId}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public Security getSecurity(String accountId, String securityId);
+
+  @GET
+  @Path("/getSecurities/{accountId}")
+  @Produces(MediaType.APPLICATION_JSON)
+  public List<Security> getSecurities(String accountId);
+
+  @GET
+  @Path("/getSecurities")
+  @Produces(MediaType.APPLICATION_JSON)
+  public List<Security> getSecurities();
 
 }
