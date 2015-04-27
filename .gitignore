@@ -14,7 +14,14 @@ target
 .project
 generated/
 .settings
-node_modules/
+
+# Dependency directory
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules
+node
+
+.tmp
+
 bower_components/
 .idea
 *.iml
@@ -30,8 +37,6 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
-# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
-.grunt
 
 # node-waf configuration
 .lock-wscript
@@ -39,6 +44,12 @@ coverage
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
-# Dependency directory
-# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
-node_modules
+
+
+Budgetio/src/main/webapp/app
+Budgetio/src/main/webapp/assets
+Budgetio/src/main/webapp/fonts
+Budgetio/src/main/webapp/scripts
+Budgetio/src/main/webapp/styles
+Budgetio/src/main/webapp/index.html
+Budgetio/src/main/webapp/favicon.ico

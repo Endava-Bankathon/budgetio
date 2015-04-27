@@ -12,7 +12,7 @@
 		<!-- Maven versions -->
 		<maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
 		<maven-clean-plugin.version>2.6.1</maven-clean-plugin.version>
-		<!-- Apache versions -->		
+		<!-- Apache versions -->
 		<apache.commons.io.version>2.4</apache.commons.io.version>
 		<apache.commons.lang.version>2.6</apache.commons.lang.version>
 		<apache.cxf.version>3.0.4</apache.cxf.version>
@@ -21,13 +21,15 @@
 		<!-- Jackson version -->
 		<jackson.version>2.0.1</jackson.version>
 		<!-- Spring version -->
-		<spring.version>4.1.0.RELEASE</spring.version>		
+		<spring.version>4.1.0.RELEASE</spring.version>
 		<!-- Java applications dependencies versions -->
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<jdk.version>1.7</jdk.version>
 	</properties>
+
 	<modules>
 		<module>budgetio</module>
 	</modules>
+
 </project>
