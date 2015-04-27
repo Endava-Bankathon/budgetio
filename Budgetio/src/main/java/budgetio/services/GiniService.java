@@ -38,6 +38,12 @@ public interface GiniService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getDocumentExtractions(@PathParam("documentId") String documentId);
 
+    @GET
+    @Path("/getDocumentLayout/{documentId}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getDocumentLayout(@PathParam("documentId") String documentId);
+
     @POST
     @Path("/decodeDocument")
     @Consumes(MediaType.MULTIPART_FORM_DATA)

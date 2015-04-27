@@ -55,6 +55,7 @@ public class GiniServiceImpl implements GiniService {
     private static final String URL_DOCUMENT_CREATE = "gini.url.document.create";
     private static final String URL_DOCUMENT_STATUS = "gini.url.document.status";
     private static final String URL_DOCUMENT_EXTRACTIONS = "gini.url.document.extractions";
+    private static final String URL_DOCUMENT_LAYOUT = "gini.url.document.layout";
 
     private static final String HEADER_ACCEPT = "gini.header.accept";
     private static final String HEADER_AUTHORIZATION_BEARER = "gini.header.authorization.bearer";
@@ -62,15 +63,24 @@ public class GiniServiceImpl implements GiniService {
     public static void main(final String... args) throws FileNotFoundException {
 
         //Creating dummy attachments from existing folder on disk
-        final FileInputStream localFile = new FileInputStream(new File("D:/file.pdf"));
+        final FileInputStream localFile = new FileInputStream(new File("D:/giniDemo.pdf"));
         final MultivaluedMap<String, String> headers = new MultivaluedHashMap<String, String>();
         final List<Attachment> attachments = new ArrayList<Attachment>();
         final Attachment attachment = new Attachment(localFile, headers);
         attachments.add(attachment);
 
+      //Creating dummy attachments from existing folder on disk
+        final FileInputStream localFile2 = new FileInputStream(new File("D:/giniDemo.pdf"));
+        final MultivaluedMap<String, String> headers2 = new MultivaluedHashMap<String, String>();
+        final List<Attachment> attachments2 = new ArrayList<Attachment>();
+        final Attachment attachment2 = new Attachment(localFile2, headers2);
+        attachments2.add(attachment2);
+
         final GiniServiceImpl gini = new GiniServiceImpl();
         final Response response = gini.decodeDocument(attachments);
+        final Response response2 = gini.getDocumentLayout(gini.createDocument(attachments2));
         System.out.println(response.readEntity(String.class));
+        System.out.println(response2.readEntity(String.class));
 
 
     }
@@ -143,6 +153,27 @@ public class GiniServiceImpl implements GiniService {
                 getUserToken()
             });
         final WebTarget target = client.target(docExtractionsURL);
+        final Response serviceResponse =
+            target.request(BUNDLE.getString(HEADER_ACCEPT)).header(HttpHeaders.AUTHORIZATION, authorizationBearer).get(
+                Response.class);
+        return serviceResponse;
+    }
+
+    /**
+     * Method for from obtaining the document layout for a document that has been uploaded and processed by the
+     * Gini API.
+     */
+    @Override
+    public Response getDocumentLayout(final String documentId) {
+        final Client client = ClientBuilder.newBuilder().build();
+        final String docLayoutURL = MessageFormat.format(BUNDLE.getString(URL_DOCUMENT_LAYOUT), new Object[] {
+            documentId
+        });
+        final String authorizationBearer =
+            MessageFormat.format(BUNDLE.getString(HEADER_AUTHORIZATION_BEARER), new Object[] {
+                getUserToken()
+            });
+        final WebTarget target = client.target(docLayoutURL);
         final Response serviceResponse =
             target.request(BUNDLE.getString(HEADER_ACCEPT)).header(HttpHeaders.AUTHORIZATION, authorizationBearer).get(
                 Response.class);
