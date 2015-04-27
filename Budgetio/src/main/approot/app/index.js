@@ -6,7 +6,12 @@ angular.module('budgetio', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', '
       .state('home', {
         url: '/',
         templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+        controller: 'WelcomeCtrl'
+      })
+      .state('dashboard', {
+        url: '/dashboard',
+        templateUrl: 'app/dashboard/dashboard.html',
+        controller: 'DashboardCtrl'
       });
 
     $urlRouterProvider.otherwise('/');

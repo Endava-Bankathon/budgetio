@@ -1,0 +1,49 @@
+<div ng-include="'app/components/navbar/navbar.html'"></div>
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-10">
+
+      <div class="row">
+        <div class="col-md-12">
+          <span class="subtitle">Your current budget</span>
+          <div class="amountBox"><span class="currency">€</span><span class="amount">{{user.budget}}</span>
+          </div>
+          <div class="category lefty" ng-repeat="category in categories">
+            <input knob class="knob" knob-options="category.options" knob-data="category.amount">
+            <span class="categoryTitle">{{category.title}}</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-8">
+          <h2 class="title1">Your transactions </h2>
+          <div class="transactions" niceScrollbar>
+            <div class="transaction" ng-repeat="transaction in transactions">
+              <div class="lefty category">
+                <div class="type food ">F</div>
+              </div>
+              <div class="info lefty">
+                <span class="currency">{{transaction.currency}}</span><span class="amount">{{transaction.amount}}</span>
+                <span class="location">{{transaction.location}}</span>
+                <span class="time">{{transaction.time}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4"> <h2 class="title1">Smart notifications </h2></div>
+      </div>
+
+    </div>
+    <div class="col-md-2">
+      <div class="box white">
+        <a href="#">
+          Scan/Upload your receipts
+          <img src="assets/images/scan.png" width="200px;" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

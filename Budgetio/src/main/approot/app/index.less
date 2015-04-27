@@ -19,11 +19,19 @@
   src: url('../fonts/Roboto-Thin.ttf');
 }
 input:focus {outline: none;}
-
+h2 {color:#919191;}
 /* webkit solution */
+
 ::-webkit-input-placeholder { text-align:right; }
 /* mozilla solution */
 input:-moz-placeholder { text-align:right; }
+
+header {background:#049caf; width: 100%; display: inline-block; height: 100px;}
+.lefty {float:left;}
+.box.white {background: #fff; margin-top:-90px; text-align:center; padding:10px;box-shadow: 1px 10px 5px #888888;}
+.box.white a{font-size:2em; color:#39393b;}
+.box.white a:hover{text-decoration: none;color:#39393b; }
+.wrapper {padding:15px;}
 .logo {
   position: absolute;
   top: 0px;
@@ -47,7 +55,8 @@ input:-moz-placeholder { text-align:right; }
   background-size: cover;
 }
 .next {background-image: url("../assets/images/arrow-right.png"); height: 128px; width: 128px; position: absolute;right: 0px; bottom:0px; cursor: pointer;}
-
+.amountBox {margin-top:-27px;}
+.amountBox  + .category {margin-left:-25px;}
 .item .centerboxy {position:absolute;left:50%;margin-left:-350px;top:50%;margin-top:-100px;width:700px;height:200px;  font-family: Roboto;}
 .item .centerboxy .title b{text-decoration: underline; color: #049caf; text-shadow:1px 1px 36px rgba(255, 255, 255, 1);}
 .item .centerboxy input { width: 80%; border-radius: 10px; font-size: 3.5em; background:none; border:0px; border-bottom:1px solid #eee; text-align: right; padding-right: 20px; color:#fff; }
@@ -55,9 +64,9 @@ input:-moz-placeholder { text-align:right; }
 .item .centerboxy .currency {position: absolute;left: 0px; font-size: 3.5em; color:#fff;	}
 
 .title {color:#fff;font-size: 4em;}
-
+.subtitle{color:#919191; font-size:3em;}
 .owl-controls {
-  position:absolute;left:50%;margin-left:-350px;bottom:0px;margin-top:500px;width:700px;height:200px;
+  position:absolute;left:50%;margin-left:-350px;bottom:0px;width:700px;  bottom: 20px;
 }
 .owl-theme .owl-controls .owl-page.active span
 {
@@ -76,6 +85,21 @@ input:-moz-placeholder { text-align:right; }
 }
 
 .owl-buttons {display: none;}
+
+
+/*dashboard */
+.amount, .currency {font-size:4.5em; color:#049caf; margin-right: 10px;}
+.category {width:200px;}
+.categoryTitle {display: inline-block; width: 100%; overflow: hidden; text-align: center;font-size: 2em; color:#393939; margin-top:-50px;}
+
+#ascrail2000 {opacity: 1 !important}
+.transactions {height: 350px;}
+.transaction {width: 100%; display: inline-block; border-bottom:1px solid #eee; padding:5px 0px;}
+.transaction .amount, .transaction .currency{font-size:32px;}
+.transaction .type {border-radius: 50%; padding:10px 22px; color:#fff;font-size:32px;width: 62px;}
+.transaction .type.food {background: #f68e56}
+.transaction .location {width:100%; display: inline-block;}
+.transaction .category {width:75px;}
 
 
 /* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
