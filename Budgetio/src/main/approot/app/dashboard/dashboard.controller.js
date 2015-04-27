@@ -14,25 +14,14 @@ angular.module('budgetio')
       };
     });
 
-    var transactions = $resource('rest/getTransactions');
-    transactions.query(function(transactions) {
-      $scope.transactions = transactions.map(function(transaction) {
-        transaction.time = moment(transaction.bookingDate).format('L');
-        transaction.currency = $scope.convertCurrency(transaction.currency);
-        transaction.category = $scope.getTransactionCategory(transaction.name);
-        transaction.categoryClass = $scope.getCategoryClass(transaction.name);
-        return transaction;
-      });
-    });
-
     $scope.convertCurrency = function(currencyCode) {
       switch(currencyCode) {
         case 'EUR':
-              return '€';
+          return '€';
         case 'USD':
-              return '$';
+          return '$';
         default:
-              return '€'
+          return '€'
       }
     };
     $scope.getCategoryClass = function(name) {
@@ -83,6 +72,20 @@ angular.module('budgetio')
       if ( name.indexOf("Schnitzelei") > -1 ) { category = "F"; }
       return category;
     };
+
+
+
+    var transactions = $resource('rest/getTransactions');
+    transactions.query(function(transactions) {
+      $scope.transactions = transactions.map(function(transaction) {
+        transaction.time = moment(transaction.bookingDate).format('L');
+        transaction.currency = $scope.convertCurrency(transaction.currency);
+        transaction.category = $scope.getTransactionCategory(transaction.name);
+        transaction.categoryClass = $scope.getCategoryClass(transaction.name);
+        return transaction;
+      });
+    });
+
     $scope.categories = [
       {
         title: 'Food',
