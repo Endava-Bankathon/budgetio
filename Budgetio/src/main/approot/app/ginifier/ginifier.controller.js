@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('budgetio')
-  .controller('GinifierCtrl', function ($scope, $modalInstance, FileUploader) {
+  .controller('GinifierCtrl', ['$scope', '$modalInstance', 'FileUploader', function ($scope, $modalInstance, FileUploader) {
 
     var uploader = $scope.uploader = new FileUploader({
       url: 'rest/decodeDocument'
@@ -49,5 +49,5 @@ angular.module('budgetio')
     $scope.cancel = function () {
       $modalInstance.dismiss('cancel');
     };
-  });
+  }]);
 
