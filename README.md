@@ -1,5 +1,19 @@
-# budgetio
-#Bankathon
+#USP
+Smart budget pal that categorizes your spendings and advises for smarter investments.
+
+#Persona
+Paul, a 28 year old software engineer from <>. Single.
+
+#MVP
+
+
+Categories:
+ - Food
+ - Household
+ - Hobby
+ - Holiday
+ - Transportation
+
 
 
 #Installing
@@ -15,3 +29,4 @@ $ npm install -g gulp bower
 $ npm install
 $ bower install
 ```
+
