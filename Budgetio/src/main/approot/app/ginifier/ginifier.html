@@ -4,30 +4,23 @@
   <h2> GINI SCANNER </h2>
 </div>
 <div class="modal-body">
-  <input type="button" class="primary" value="SCAN ME" nv-file-select="" uploader="uploader">
-  <input type="file" nv-file-select="" uploader="uploader" />
+  <input type="file" class="primary" nv-file-select="" uploader="uploader" ng-show="!uploading" />
+  <div class="progress" style="margin-bottom: 0;" ng-show="uploading">
+    <div class="progress-bar" role="progressbar" ng-style="{ 'width': currentProgress + '%' }"></div>
+  </div>
 
-  <div class="results">
-    <table class="products">
+  <div class="results" ng-show="scanCandidates != null">
+    <div ng-show="scanCandidates.length == 0">No data</div>
+    <table class="products" ng-show="scanCandidates.length > 0">
       <thead>
       <th>Category</th>
       <th>Product</th>
       <th class="price">Price</th>
       </thead>
-      <tr>
+      <tr ng-repeat="candidate in scanCandidates">
         <td><span class="type food">F</span></td>
         <td>product name here</td>
-        <td class="price">123 $</td>
-      </tr>
-      <tr>
-        <td><span class="type food">F</span></td>
-        <td>product name here</td>
-        <td class="price">123 $</td>
-      </tr>
-      <tr>
-        <td><span class="type food">F</span></td>
-        <td>product name here</td>
-        <td class="price">123 $</td>
+        <td class="price">{{candidate.value.split(':')[0]}}</td>
       </tr>
       <tr>
         <td colspan="3" class="price total">500</td>

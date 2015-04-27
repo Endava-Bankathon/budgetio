@@ -25,19 +25,18 @@ angular.module('budgetio')
       $scope.uploading = true;
     };
     uploader.onProgressItem = function(fileItem, progress) {
-      console.info('onProgressItem', fileItem, progress);
+      $scope.currentProgress = progress;
     };
 
-    uploader.onSuccessItem = function(fileItem, response, status, headers) {
-      console.info('onSuccessItem', fileItem, response, status, headers);
-    };
     uploader.onErrorItem = function(fileItem, response, status, headers) {
       console.info('onErrorItem', fileItem, response, status, headers);
     };
 
-    uploader.onCompleteItem = function(fileItem, response, status, headers) {
+    uploader.onCompleteItem = function(fileItem, response) {
       $scope.uploading = false;
-      console.info('onCompleteItem', fileItem, response, status, headers);
+      uploader.queue = [];
+      console.log(response);
+      $scope.scanCandidates = response.candidates.amounts;
     };
 
     $scope.currentProgress = 0;
