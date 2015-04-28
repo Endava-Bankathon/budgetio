@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('budgetio')
-  .service("NotifyingCache", ["$rootScope",  function($rootScope){
+  .service('NotifyingCache', ['$rootScope',  function($rootScope){
 
   var cache = {};
 
@@ -9,7 +9,7 @@ angular.module('budgetio')
     var oldValue = this.get(key);
     cache[key] = value;
     $rootScope.$broadcast(
-      "cache.item.updated",
+      'cache.item.updated',
       { key: key, newValue: value, oldValue: oldValue });
   };
 
@@ -17,7 +17,7 @@ angular.module('budgetio')
     var value = this.get(key);
     delete cache[key];
     $rootScope.$broadcast(
-      "cache.item.removed", { key: key, value: value });
+      'cache.item.removed', { key: key, value: value });
   };
 
   this.get = function(key){

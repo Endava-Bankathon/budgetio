@@ -5,6 +5,11 @@ angular.module('budgetio')
     $scope.playme = true;
     $scope.welcomeCategories = [
       {
+        title: '',
+        video: true,
+        slideClass: 'slide0'
+      },
+      {
         'title': 'FOOD',
         code: 'F',
         'value': '',

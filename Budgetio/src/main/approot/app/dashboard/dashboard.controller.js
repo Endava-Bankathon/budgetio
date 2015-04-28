@@ -15,7 +15,7 @@ angular.module('budgetio')
     });
 
     $scope.$on('cache.item.updated', function(item) {
-      if (item.key == 'categories') {
+      if (item.key === 'categories') {
         $scope.categories = item.newValue;
       }
     });
