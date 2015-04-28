@@ -20,8 +20,12 @@
       <div class="row">
         <div class="col-md-7">
           <h2 class="title1">Your transactions </h2>
-
-          <div class="transactions" niceScrollbar="true">
+          <div ng-show="!transactions" class="loading-parent">
+            <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+              <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+            </svg>
+          </div>
+          <div class="transactions" niceScrollbar="true" ng-show="transactions.length">
             <div class="transaction" ng-repeat="transaction in transactions">
               <div class="lefty category">
                 <div ng-class="['type', transaction.categoryClass]">{{transaction.category}}</div>

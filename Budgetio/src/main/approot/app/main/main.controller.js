@@ -6,20 +6,17 @@ angular.module('budgetio')
       {
         'title': 'FOOD',
         'value': '',
-        'url': 'https://angularjs.org/',
-        'active': true
+        'slideClass': 'slide1'
       },
       {
         'title': 'HOBBY',
         'value': '',
-        'url': 'http://browsersync.io/',
-        'active': false
+        'slideClass': 'slide2'
       },
       {
         'title': 'HOLIDAY',
         'value': '',
-        'url': 'http://gulpjs.com/',
-        'active': false
+        'slideClass': 'slide3'
       }
     ];
 

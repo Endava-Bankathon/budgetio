@@ -18,17 +18,17 @@
       <th class="price">Price</th>
       </thead>
       <tr ng-repeat="candidate in scanCandidates">
-        <td><span class="type food">F</span></td>
+        <td><span ng-class="['type', candidate.categoryClass]">{{candidate.category}}</span></td>
         <td>product name here</td>
-        <td class="price">{{candidate.value.split(':')[0]}}</td>
+        <td class="price">{{candidate.amount}} {{candidate.currency}}</td>
       </tr>
       <tr>
-        <td colspan="3" class="price total">500</td>
+        <td colspan="3" class="price total">{{getTotal()}} &euro;</td>
       </tr>
     </table>
   </div>
 </div>
-<div class="modal-footer">
+<div class="modal-footer" ng-show="scanCandidates != null">
   <div class="category lefty">
     <input knob class="knob"knob-options="{width: 200, max: 4500, displayPrevious: true, fgColor:'#18ac81', skin: 'tron', thickness: .3}"
            knob-data="1000">

@@ -6,7 +6,7 @@
     <div class="span12">
       <data-owl-carousel class="owl-carousel"
                          data-options="{navigation: true, slideSpeed: 300, paginationSpeed: 400, singleItem: true, transitionStyle : 'fade'}">
-        <div owl-carousel-item="" class="item slide1" ng-repeat="item in ::welcomeCategories">
+        <div owl-carousel-item="" class="item slide1" ng-class="['item', item.slideClass]" ng-repeat="item in ::welcomeCategories">
           <div class="centerboxy">
             <span class="title">How much do you want to spend on your <b>{{item.title}}</b>?</span>
             <div class="input">
