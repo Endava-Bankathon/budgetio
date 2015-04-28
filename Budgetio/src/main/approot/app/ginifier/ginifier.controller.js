@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('budgetio')
-  .controller('GinifierCtrl', ['$scope', '$modalInstance', 'FileUploader', 'CategoryService',
-    function ($scope, $modalInstance, FileUploader, CategoryService) {
+  .controller('GinifierCtrl', function ($scope, $modalInstance, FileUploader, CategoryService, UserService) {
 
       var uploader = $scope.uploader = new FileUploader({
         url: 'rest/decodeDocument'
@@ -36,22 +35,26 @@ angular.module('budgetio')
       uploader.onSuccessItem = function (fileItem, response) {
         $scope.scanCandidates = [
           {
-            amount: 15.29,
+            amount: 150,
+            productName: 'A nice fancy Hammer',
             currency: CategoryService.convertCurrency('EUR'),
-            categoryClass: 'transportation',
-            category: 'T'
+            categoryClass: 'house',
+            category: 'H'
           }, {
-            amount: 53.17,
+            amount: 530,
+            productName: 'Beef',
             currency: CategoryService.convertCurrency('EUR'),
             categoryClass: 'food',
             category: 'F'
           }, {
-            amount: 149.90,
+            amount: 1490,
+            productName: 'Clothing',
             currency: CategoryService.convertCurrency('EUR'),
             categoryClass: 'misc',
             category: 'M'
           }
         ];
+        $scope.totalValue = $scope.currentCashValue - $scope.getTotal();
       };
 
       $scope.getTotal = function () {
@@ -62,6 +65,14 @@ angular.module('budgetio')
         return total;
       };
 
+      $scope.currentCashValue = 0;
+      $scope.totalValue = 0;
+      UserService.getCategories().map(function(item) {
+        if (item.code === 'C') {
+          $scope.currentCashValue = item.amount;
+        }
+      });
+
       uploader.onCompleteItem = function (fileItem, response) {
         $scope.uploading = false;
         uploader.queue = [];
@@ -71,10 +82,19 @@ angular.module('budgetio')
       $scope.uploading = false;
 
       $scope.ok = function () {
+        var transaction = {
+          amount: $scope.getTotal(),
+          time: moment().format('L'),
+          currency: '€',
+          category: 'C',
+          categoryClass: 'cash',
+          categories: $scope.scanCandidates
+        };
+        UserService.addCashTransaction(transaction);
         $modalInstance.close($scope.selected);
       };
       $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
       };
-    }]);
+    });
 
