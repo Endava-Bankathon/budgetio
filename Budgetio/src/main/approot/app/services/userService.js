@@ -89,9 +89,16 @@ angular.module('budgetio').
       });
     };
 
+    this.adjustCash = function(amount) {
+      this.categories.map(function(category) {
+        if (category.code === 'C') {
+          category.amount -= amount;
+        }
+      });
+    };
+
     this.adjustCategory = function(categoryCode, amount) {
       this.categories.map(function(category) {
-        console.log(category.code + '-' + amount);
         if (category.code === categoryCode) {
           category.amount += Math.abs(amount);
         }
@@ -117,6 +124,17 @@ angular.module('budgetio').
         };
         callback(balance);
       });
+    };
+
+    this.addCashTransaction = function(transaction) {
+      //this.transactions.unshift(transaction);
+      this.adjustCash(transaction.amount);
+      var me = this;
+      transaction.categories.map(function(cat) {
+        me.adjustCategory(cat.category, cat.amount);
+      });
+
+      NotifyingCache.put('categories', this.categories);
     };
 
     this.getTransactions = function(callback) {

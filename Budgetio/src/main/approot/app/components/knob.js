@@ -58,7 +58,12 @@ angular.module('budgetio')
 
         $scope.$watch('knobData', function(newValue, oldValue) {
           if (newValue !== oldValue) {
-            $($element).val(newValue).change();
+            var intVal = parseInt(newValue, 10);
+            if (isNaN(intVal)) {
+              $($element).val(newValue).change();
+            } else {
+              $($element).val(intVal).change();
+            }
           }
         });
 

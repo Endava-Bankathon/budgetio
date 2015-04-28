@@ -5,20 +5,23 @@ angular.module('budgetio')
     $scope.welcomeCategories = [
       {
         title: '',
+        code: 'F',
         video: true,
+        source: 'assets/video/intro.mp4',
+        value: '',
         slideClass: 'slide0'
       },
       {
-        'title': 'FOOD',
+        title: 'FOOD',
         code: 'F',
-        'value': '',
-        'slideClass': 'slide1'
+        value: '',
+        slideClass: 'slide1'
       },
       {
-        'title': 'HOUSEHOLD',
+        title: 'HOUSEHOLD',
         code: 'H',
-        'value': '',
-        'slideClass': 'slide2'
+        value: '',
+        slideClass: 'slide2'
       },
       {
         'title': 'HOLIDAY',

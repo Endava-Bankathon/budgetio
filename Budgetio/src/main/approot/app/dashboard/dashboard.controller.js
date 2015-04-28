@@ -10,7 +10,6 @@ angular.module('budgetio')
     });
 
     UserService.getTransactions(function(transactions) {
-      console.log(transactions);
       $scope.transactions = transactions;
     });
 
