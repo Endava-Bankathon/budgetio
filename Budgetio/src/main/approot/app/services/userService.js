@@ -71,7 +71,7 @@ angular.module('budgetio').
         code: 'C',
         amount: 0,
         options: {
-          max: 4500,
+          max: 8000,
           fgColor: '#18ac81',
           thickness: 0.3,
           skin: 'tron',
@@ -115,6 +115,7 @@ angular.module('budgetio').
         me.user = {
           budget: balance
         };
+        me.setMaxForCategory('C', balance);
         callback(balance);
       });
     };
