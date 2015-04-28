@@ -7,7 +7,7 @@
       <data-owl-carousel class="owl-carousel"
                          data-options="{navigation: true, slideSpeed: 300, paginationSpeed: 400, singleItem: true, transitionStyle : 'fade'}">
 
-        <div owl-carousel-item="" ng-class="['item', item.slideClass]" ng-repeat="item in ::welcomeCategories">
+        <div owl-carousel-item="" class="item slide1" ng-class="['item', item.slideClass]" ng-repeat="item in ::welcomeCategories">
           <div ng-if="item.video">
             <span class="next centered" ng-click="next()" ng-show="playme"></span>
             <div class="overlay"></div>
