@@ -6,15 +6,11 @@
     <div class="span12">
       <data-owl-carousel class="owl-carousel"
                          data-options="{navigation: true, slideSpeed: 300, paginationSpeed: 400, singleItem: true, transitionStyle : 'fade'}">
-
         <div owl-carousel-item="" class="item slide0" ng-class="['item', item.slideClass]" ng-repeat="item in ::welcomeCategories">
-          <div ng-if="item.video">
-            <div class="overlay"></div>
-            <video autoplay id="video" muted width="100%" height="100%">
-              <source src="assets/video/intro.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="centerboxy" ng-if="!item.video">
+          <video autoplay id="video" muted width="100%" height="100%" ng-show="item.video">
+            <source src="{{item.source}}" type="video/mp4" ng-if="item.source">
+          </video>
+          <div class="centerboxy" ng-show="!item.video">
             <span class="title">How much do you want to spend on your <b>{{item.title}}</b>?</span>
             <div class="input">
               <span class="currency">€</span>
