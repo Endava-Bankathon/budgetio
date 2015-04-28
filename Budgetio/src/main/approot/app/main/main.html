@@ -6,6 +6,14 @@
     <div class="span12">
       <data-owl-carousel class="owl-carousel"
                          data-options="{navigation: true, slideSpeed: 300, paginationSpeed: 400, singleItem: true, transitionStyle : 'fade'}">
+        <div  owl-carousel-item="" class="item slide0">
+          <span class="next centered" ng-click="next()" ng-show="playme"></span>
+          <div class="overlay"></div>
+          <video autoplay id="video" muted width="100%" height="100%">
+            <source src="assets/video/intro.mp4" type="video/mp4">
+          </video>
+        </div>
+
         <div owl-carousel-item="" class="item slide1" ng-repeat="item in ::welcomeCategories">
           <div class="centerboxy">
             <span class="title">How much do you want to spend on your <b>{{item.title}}</b>?</span>
