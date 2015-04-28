@@ -1,99 +1,26 @@
 'use strict';
 
 angular.module('budgetio')
-  .controller('DashboardCtrl', function ($scope, $state, $resource, CategoryService) {
+  .controller('DashboardCtrl', function ($scope, $state, UserService) {
 
-    var usr = $resource('rest/getAccounts');
-    usr.query(function(accounts) {
-      var balance = 0;
-      accounts.map(function(account) {
-        balance += account.balance.balance;
-      });
+    UserService.getBalance(function(balance) {
       $scope.user = {
         budget: balance
       };
     });
 
-    var transactions = $resource('rest/getTransactions');
-    transactions.query(function(transactions) {
-      $scope.transactions = transactions.map(function(transaction) {
-        transaction.time = moment(transaction.bookingDate).format('L');
-        transaction.currency = CategoryService.convertCurrency(transaction.currency);
-        transaction.category = CategoryService.getTransactionCategory(transaction.name);
-        transaction.categoryClass = CategoryService.getCategoryClass(transaction.name);
-        return transaction;
-      });
+    UserService.getTransactions(function(transactions) {
+      console.log(transactions);
+      $scope.transactions = transactions;
     });
 
-    $scope.categories = [
-      {
-        title: 'Food',
-        amount: 1000,
-        options: {
-          max: 4500,
-          fgColor: '#f68e56',
-          thickness: 0.3,
-          skin: 'tron',
-          width: 200,
-          displayPrevious: true
-        }
-      }, {
-        title: 'Misc',
-        amount: 1000,
-        options: {
-          max: 4500,
-          fgColor: '#b56ef5',
-          thickness: 0.3,
-          skin: 'tron',
-          width: 200,
-          displayPrevious: true
-        }
-      }, {
-        title: 'Holiday',
-        amount: 1000,
-        options: {
-          max: 4500,
-          fgColor: '#fc3589',
-          thickness: 0.3,
-          skin: 'tron',
-          width: 200,
-          displayPrevious: true
-        }
-      }, {
-        title: 'Household',
-        amount: 1500,
-        options: {
-          max: 4500,
-          fgColor: '#4a668d',
-          thickness: 0.3,
-          skin: 'tron',
-          width: 200,
-          displayPrevious: true
-        }
-      }, {
-        title: 'Transportation',
-        amount: 1000,
-        options: {
-          max: 4500,
-          fgColor: '#f64730',
-          thickness: 0.3,
-          skin: 'tron',
-          width: 200,
-          displayPrevious: true
-        }
-      }, {
-        title: 'Cash',
-        amount: 1000,
-        options: {
-          max: 4500,
-          fgColor: '#18ac81',
-          thickness: 0.3,
-          skin: 'tron',
-          width: 200,
-          displayPrevious: true
-        }
+    $scope.$on('cache.item.updated', function(item) {
+      if (item.key == 'categories') {
+        $scope.categories = item.newValue;
       }
-    ];
+    });
+
+    $scope.categories = UserService.getCategories();
 
     $scope.ginify = function() {
       $state.go('ginifier');

@@ -1,20 +1,23 @@
 'use strict';
 
 angular.module('budgetio')
-  .controller('WelcomeCtrl', function ($scope, $state) {
+  .controller('WelcomeCtrl', function ($scope, $state, UserService) {
     $scope.welcomeCategories = [
       {
         'title': 'FOOD',
+        code: 'F',
         'value': '',
         'slideClass': 'slide1'
       },
       {
-        'title': 'HOBBY',
+        'title': 'HOUSEHOLD',
+        code: 'H',
         'value': '',
         'slideClass': 'slide2'
       },
       {
         'title': 'HOLIDAY',
+        code: 'V',
         'value': '',
         'slideClass': 'slide3'
       }
@@ -25,6 +28,7 @@ angular.module('budgetio')
     };
 
     $scope.next = function(item) {
+      UserService.setMaxForCategory(item.code, item.value);
       item.active = false;
       var carousel = $('.owl-carousel').data().owlCarousel;
       if (carousel.currentItem === carousel.itemsAmount - 1) {
