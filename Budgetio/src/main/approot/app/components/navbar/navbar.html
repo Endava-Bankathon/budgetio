@@ -1,10 +1,9 @@
-<header>
+<header ng-controller="NavbarCtrl">
   <div class="logo"> <img src="assets/images/budgetio.png"></div>
   <!--happy sad worried -->
-  <div class="status happy">
+  <div ng-class="['status', statusCls]">
     <span class="pig"></span>
-    <div class="happyinfo">BUDGETIO is HAPPY!</div>
-    <div class="sadinfo">BUDGETIO is SAD!</div>
-    <div class="worriedinfo">BUDGETIO is Worried!</div>
+    <div class="happyinfo" ng-show="statusCls == 'happy'">BUDGETIO is HAPPY!</div>
+    <div class="sadinfo" ng-show="statusCls == 'sad'">BUDGETIO is SAD!</div>
   </div>
 </header>

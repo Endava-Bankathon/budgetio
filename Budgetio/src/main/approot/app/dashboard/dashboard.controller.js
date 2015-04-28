@@ -8,6 +8,7 @@ angular.module('budgetio')
         budget: balance
       };
     });
+    $scope.pigStatusCls = UserService.getBudgetStatus();
 
     UserService.getTransactions(function(transactions) {
       $scope.transactions = transactions;
@@ -16,6 +17,7 @@ angular.module('budgetio')
     $scope.$on('cache.item.updated', function(item) {
       if (item.key === 'categories') {
         $scope.categories = item.newValue;
+        $scope.pigStatusCls = UserService.getBudgetStatus();
       }
     });
 

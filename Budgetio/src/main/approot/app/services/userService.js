@@ -162,4 +162,16 @@ angular.module('budgetio').
       return this.categories;
     };
 
+    this.getBudgetStatus = function () {
+      /* 0 - happy; 1 - worried; 2 - sad */
+      var budgetStatus = 'happy';
+      for (var i = 0; i < this.categories.length; i++) {
+        var cat = this.categories[i];
+        if (Math.abs(cat.amount) > 0.8 * Math.abs(cat.options.max)) {
+          budgetStatus = 'sad';
+        }
+      }
+      return budgetStatus;
+    }
+
   });
