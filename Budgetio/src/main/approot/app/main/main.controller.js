@@ -5,25 +5,37 @@ angular.module('budgetio')
     $scope.welcomeCategories = [
       {
         'title': 'FOOD',
-        'url': 'https://angularjs.org/'
+        'value': '',
+        'url': 'https://angularjs.org/',
+        'active': true
       },
       {
         'title': 'HOBBY',
-        'url': 'http://browsersync.io/'
+        'value': '',
+        'url': 'http://browsersync.io/',
+        'active': false
       },
       {
         'title': 'HOLIDAY',
-        'url': 'http://gulpjs.com/'
+        'value': '',
+        'url': 'http://gulpjs.com/',
+        'active': false
       }
     ];
 
-    $scope.next = function() {
+    $scope.checkNextAvailable = function(item) {
+      return !(item.value > 0);
+    };
+
+    $scope.next = function(item) {
+      item.active = false;
       var carousel = $('.owl-carousel').data().owlCarousel;
       if (carousel.currentItem === carousel.itemsAmount - 1) {
         //Navigate to dashboard
         $state.go('dashboard');
       } else {
         carousel.next();
+        $scope.welcomeCategories[carousel.currentItem].active = true;
       }
     };
   });

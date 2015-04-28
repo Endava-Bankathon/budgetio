@@ -9,11 +9,14 @@
         <div owl-carousel-item="" class="item slide1" ng-repeat="item in ::welcomeCategories">
           <div class="centerboxy">
             <span class="title">How much do you want to spend on your <b>{{item.title}}</b>?</span>
-            <div class="input"><span class="currency">€</span><input type="text" placeholder ="000.00" /> <span class="next" ng-click="next(item)"></span></div>
+            <div class="input">
+              <span class="currency">€</span>
+              <input autofocus="active" type="text" placeholder ="000.00" ng-model="item.value" ng-pattern="/^\d+(\.\d{1,2})?$/" ng-keyup="$event.keyCode == 13 && !checkNextAvailable(item) && next(item)"/>
+              <span class="next" ng-click="checkNextAvailable(item) || next(item)" data-ng-disabled="checkNextAvailable(item)"></span>
+            </div>
           </div>
         </div>
       </data-owl-carousel>
     </div>
-
   </div>
 </div>
