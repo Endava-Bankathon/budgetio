@@ -2,7 +2,6 @@
 
 angular.module('budgetio')
   .controller('WelcomeCtrl', function ($scope, $state, UserService) {
-    $scope.playme = true;
     $scope.welcomeCategories = [
       {
         title: '',
@@ -33,11 +32,6 @@ angular.module('budgetio')
       return !(item.value > 0);
     };
     $scope.next = function(item) {
-      if (!item) {
-        $scope.playme = false;
-        $('#video')[0].play();
-        return;
-      }
       UserService.setMaxForCategory(item.code, item.value);
       item.active = false;
       var carousel = $('.owl-carousel').data().owlCarousel;

@@ -115,7 +115,6 @@ angular.module('budgetio').
         me.user = {
           budget: balance
         };
-        me.setMaxForCategory('C', balance);
         callback(balance);
       });
     };
