@@ -2,6 +2,7 @@
 
 angular.module('budgetio')
   .controller('WelcomeCtrl', function ($scope, $state) {
+    $scope.playme = true;
     $scope.welcomeCategories = [
       {
         'title': 'FOOD',
@@ -26,8 +27,12 @@ angular.module('budgetio')
     $scope.checkNextAvailable = function(item) {
       return !(item.value > 0);
     };
-
     $scope.next = function(item) {
+      if (!item) {
+        $scope.playme = false;
+        $('#video')[0].play();
+        return;
+      }
       item.active = false;
       var carousel = $('.owl-carousel').data().owlCarousel;
       if (carousel.currentItem === carousel.itemsAmount - 1) {
