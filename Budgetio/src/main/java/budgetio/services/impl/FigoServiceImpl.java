@@ -32,7 +32,7 @@ public class FigoServiceImpl implements FigoService {
   private static final String ACCESS_TOKEN = "figo.access.token";
 
   /** Sample Figo session from the Figo SDK. */
-  private static final FigoSession figoSession = new FigoSession(BUNDLE.getString(ACCESS_TOKEN));
+  private static final FigoSession figoSession = new FigoSession(BUNDLE.getString(ACCESS_TOKEN), 60000);
 
   public static void main(final String... args) {
     final FigoServiceImpl figo = new FigoServiceImpl();
