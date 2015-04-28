@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('budgetio')
-  .controller('DashboardCtrl', function ($scope, $state, $resource) {
+  .controller('DashboardCtrl', function ($scope, $state, $resource, CategoryService) {
 
     var usr = $resource('rest/getAccounts');
     usr.query(function(accounts) {
@@ -14,74 +14,13 @@ angular.module('budgetio')
       };
     });
 
-    $scope.convertCurrency = function(currencyCode) {
-      switch(currencyCode) {
-        case 'EUR':
-          return '€';
-        case 'USD':
-          return '$';
-        default:
-          return '€';
-      }
-    };
-    $scope.getCategoryClass = function(name) {
-      switch($scope.getTransactionCategory(name)) {
-        case 'M': {
-          return 'misc';
-        }
-        case 'T': {
-          return 'transportation';
-        }
-        case 'H':{
-          return 'house';
-        }
-        case 'C':{
-          return 'cash';
-        }
-        case 'F':{
-          return 'food';
-        }
-        case 'V': {
-          return 'holiday';
-        }
-      }
-      return 'food';
-    };
-
-    $scope.getTransactionCategory =  function(name) {
-      var category = 'M';
-      if ( name.indexOf('Airfreu') > -1 ) { category = 'T'; }
-      if ( name.indexOf('Amazing Services Europe') > -1 ) { category = 'T'; }
-      if ( name.indexOf('Apple') > -1 ) { category = 'H'; }
-      if ( name.indexOf('Deli') > -1 ) { category = 'F'; }
-      if ( name.indexOf('Verkehr') > -1 ) { category = 'T'; }
-      if ( name.indexOf('supermarkt') > -1 ) { category = 'F'; }
-      if ( name.indexOf('Bitstream') > -1 ) { category = 'H'; }
-      if ( name.indexOf('Butter Lindner') > -1 ) { category = 'F'; }
-      if ( name.indexOf('Call A Bike') > -1 ) { category = 'T'; }
-      if ( name.indexOf('Dr. House Solutions Gmbh') > -1 ) { category = 'H'; }
-      if ( name.indexOf('Feinkost') > -1 ) { category = 'F'; }
-      if ( name.indexOf('Fidibus') > -1 ) { category = 'H'; }
-      if ( name.indexOf('Giro') > -1 ) { category = 'C'; }
-      if ( name.indexOf('Brot') > -1 ) { category = 'F'; }
-      if ( name.indexOf('Supermarkt') > -1 ) { category = 'F'; }
-      if ( name.indexOf('Lichtblick') > -1 ) { category = 'H'; }
-      if ( name.indexOf('Luigi') > -1 ) { category = 'F'; }
-      if ( name.indexOf('Ferien') > -1 ) { category = 'V'; }
-      if ( name.indexOf('Rundfunkgebühren Ard/Zdf') > -1 ) { category = 'H'; }
-      if ( name.indexOf('Schnitzelei') > -1 ) { category = 'F'; }
-      return category;
-    };
-
-
-
     var transactions = $resource('rest/getTransactions');
     transactions.query(function(transactions) {
       $scope.transactions = transactions.map(function(transaction) {
         transaction.time = moment(transaction.bookingDate).format('L');
-        transaction.currency = $scope.convertCurrency(transaction.currency);
-        transaction.category = $scope.getTransactionCategory(transaction.name);
-        transaction.categoryClass = $scope.getCategoryClass(transaction.name);
+        transaction.currency = CategoryService.convertCurrency(transaction.currency);
+        transaction.category = CategoryService.getTransactionCategory(transaction.name);
+        transaction.categoryClass = CategoryService.getCategoryClass(transaction.name);
         return transaction;
       });
     });
