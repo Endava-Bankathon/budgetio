@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('budgetio')
-  .directive("owlCarousel", function() {
+  .directive('owlCarousel', function() {
   return {
     restrict: 'E',
     transclude: false,

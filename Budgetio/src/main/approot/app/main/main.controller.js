@@ -17,7 +17,7 @@ angular.module('budgetio')
       }
     ];
 
-    $scope.next = function(item) {
+    $scope.next = function() {
       var carousel = $('.owl-carousel').data().owlCarousel;
       if (carousel.currentItem === carousel.itemsAmount - 1) {
         //Navigate to dashboard

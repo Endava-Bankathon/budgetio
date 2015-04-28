@@ -10,17 +10,17 @@ angular.module('budgetio')
 
     uploader.filters.push({
       name: 'customFilter',
-      fn: function(item /*{File|FileLikeObject}*/, options) {
+      fn: function() {
         return this.queue.length < 1;
       }
     });
 
-    uploader.onAfterAddingAll = function(addedFileItems) {
+    uploader.onAfterAddingAll = function() {
       //Start upload
       uploader.queue[0].upload();
     };
 
-    uploader.onBeforeUploadItem = function(item) {
+    uploader.onBeforeUploadItem = function() {
       $scope.currentProgress = 0;
       $scope.uploading = true;
     };

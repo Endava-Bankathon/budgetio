@@ -1,8 +1,7 @@
-'use strict'
+'use strict';
 
 angular.module('budgetio')
   .directive('knob', ['$timeout', function($timeout) {
-    'use strict';
 
     return {
       restrict: 'EA',
@@ -28,9 +27,9 @@ angular.module('budgetio')
 
             this.cursorExt = 0.3;
 
-            var a = this.arc(this.cv)  // Arc
-              , pa                   // Previous arc
-              , r = 1;
+            var a = this.arc(this.cv),  // Arc
+              pa,                 // Previous arc
+              r = 1;
 
             this.g.lineWidth = this.lineWidth;
 
@@ -58,7 +57,7 @@ angular.module('budgetio')
         };
 
         $scope.$watch('knobData', function(newValue, oldValue) {
-          if (newValue != oldValue) {
+          if (newValue !== oldValue) {
             $($element).val(newValue).change();
           }
         });
