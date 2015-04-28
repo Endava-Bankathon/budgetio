@@ -19,12 +19,12 @@ angular.module('budgetio').
           displayPrevious: true
         }
       }, {
-        title: 'Misc',
-        code: 'M',
+        title: 'Household',
+        code: 'H',
         amount: 0,
         options: {
-          max: 4500,
-          fgColor: '#b56ef5',
+          max: 8000,
+          fgColor: '#4a668d',
           thickness: 0.3,
           skin: 'tron',
           width: 200,
@@ -43,12 +43,12 @@ angular.module('budgetio').
           displayPrevious: true
         }
       }, {
-        title: 'Household',
-        code: 'H',
+        title: 'Misc',
+        code: 'M',
         amount: 0,
         options: {
-          max: 8000,
-          fgColor: '#4a668d',
+          max: 4500,
+          fgColor: '#b56ef5',
           thickness: 0.3,
           skin: 'tron',
           width: 200,
